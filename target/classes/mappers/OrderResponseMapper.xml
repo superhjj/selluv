@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+	namespace="com.company.selluv.persistence.OrderResponseMapper">
+	<resultMap
+		type="com.company.selluv.domain.dto.FormResponseDTO"
+		id="formResponseDTO">
+		<id property="formResponseCode" column="form_response_code"
+			jdbcType="VARCHAR" />
+		<id property="formCode" column="form_code" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<resultMap
+		type="com.company.selluv.domain.dto.OrderMemberDTO"
+		id="orderMemberDTO">
+		<id property="orderMemberCode" column="order_member_code"
+			jdbcType="VARCHAR" />
+		<id property="formResponseCode" column="form_response_code"
+			jdbcType="VARCHAR" />
+		<id property="memberId" column="member_id" jdbcType="VARCHAR" />
+		<id property="orderDate" column="order_date" jdbcType="DATE" />
+	</resultMap>
+	<delete id="deleteOrderResponseList">
+		DELETE FROM form_response_tb WHERE form_response_code=#{formResponseCode}
+	</delete>
+
+	<delete id="deleteOrderResponse">
+		DELETE FROM form_response_tb WHERE form_code=#{formCode}
+	</delete>
+
+	<select id="searchOrderResponseCode" resultMap="formResponseDTO">
+		SELECT * FROM form_response_tb WHERE form_response_code=#{formResponseCode}
+	</select>
+
+	<select id="searchOrderResponseForm" resultMap="formResponseDTO">
+		SELECT * FROM form_response_tb WHERE form_code=#{formCode}
+	</select>
+	<delete id="deleteOrderMemberByMember">
+		DELETE FROM order_member_tb WHERE member_id=#{memberId}
+	</delete>
+	<delete id="deleteOrderMemberByCode">
+		DELETE FROM order_member_tb WHERE order_member_code=#{orderMemberCode}
+	</delete>
+	<select id="searchOrderMemberByMember"
+		resultMap="orderMemberDTO">
+		SELECT * FROM order_member_tb WHERE member_id=#{memberId}
+	</select>
+	<select id="searchOrderMemberByCode" resultMap="orderMemberDTO">
+		SELECT * FROM order_member_tb WHERE order_member_code=#{orderMemberCode}
+	</select>
+</mapper>
