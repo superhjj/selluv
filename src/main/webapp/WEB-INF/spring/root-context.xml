@@ -37,6 +37,11 @@
 		<property name="mapperInterface" value="com.company.selluv.persistence.HashtagLinkMapper"/>
 		<property name="sqlSessionFactory" ref="SessionFactory"></property>
 	</bean>
+	<!-- 추가 -->
+	<bean id="formMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.company.selluv.persistence.FormMapper"/>
+		<property name="sqlSessionFactory" ref="SessionFactory"></property>
+	</bean>
 	
 	<bean id="hashtagMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface" value="com.company.selluv.persistence.HashtagMapper"/>
