@@ -65,7 +65,7 @@ $(document).ready(function(){
    			  else {
    				  console.log('아이디가 다름');
    				  for(var i = 0; i < list.length; i++) {
-   					  str += '<div class=\"userpeed-forms col-md-4\"><span class=\'form-item\'> <a href=orderSheetSearch.do?memberId='+ list[i].peed_id +'&formCode='+ list[i].form_code +'>' + list[i].form_title + '</a></span></div>';
+   					  str += '<div class=\"userpeed-forms col-md-4\"><span class=\'form-item\'> <a href=orderSheetSearch.do/'+list[i].form_code+'/'+list[i].peed_id+'>' + list[i].form_title + '</a></span></div>';
    				  }
    				/*  alert('test'+list[167].peed_id);*/
    			  
